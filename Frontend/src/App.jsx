@@ -1,7 +1,14 @@
-import React from 'react'
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SignupPage from "./pages/SignupPage";
+
 
 export default function App() {
   return (
-    <div className=''>app</div>
-  )
+    
+      <Routes>
+        <Route path="/signup" element={<SignupPage/>} />
+      </Routes>
+    
+  );
 }
