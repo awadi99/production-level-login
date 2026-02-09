@@ -1,6 +1,7 @@
 // import { sign } from "jsonwebtoken"
 import bcrypt from "bcryptjs"
 import newUser from "../models/loginModel.js"
+import { generateToken } from "../lib/utils.js";
 
 export const signup = async(req,res)=>{
     const{fullName,email,password}=req.body;
@@ -35,6 +36,7 @@ export const signup = async(req,res)=>{
 
         const savedUser = await userNew.save();
 
+        generateToken(savedUser._id,res);
         res.status(201).json({
             _id:savedUser._id,
             fullName:savedUser.fullName,

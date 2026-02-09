@@ -9,6 +9,7 @@ export const generateToken =(userId,res)=>{
         httpOnly:true,
         sameSite:"none",
         secure:true,
+        
     });
     return token;
 }
